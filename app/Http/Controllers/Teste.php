@@ -10,11 +10,17 @@ class Teste extends Controller
 {
     public function index(){
         // Para apresentar mais de uma tabela, devemos pó-las como um array, caso contrário basta sem array
-        $resultados = DB::table('socios')->get(['telefone','nome'])->all(); 
+        // $resultados = DB::table('socios')->get(['telefone','nome'])->all(); 
+
+        // WHERE
+        $resultados =DB::table('socios')->where('nome', 'Zito Fernando')->get()->all();
+
+        // Buscar dados de um coluna
+        $resultados =DB::table('socios')->pluck('nome')->all();
 
         // $resultados = DB::table('socios')->get('nome')->all(); 
         
-        
+
         // foreach ($resultados as $socio){
         //     echo '<p>'.$socio->telefone . '</p>';
         //     echo '<p>'.$socio->nome . '</p>';
