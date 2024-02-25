@@ -17,7 +17,10 @@ class Teste extends Controller
         // return view('home');
 
         // Inserção de sócio 
-        DB::insert("INSERT INTO socios VALUES (0, ?, ?, NOW(), NOW())", ['Didi', '3333']);
+        // DB::insert("INSERT INTO socios VALUES (0, ?, ?, NOW(), NOW())", ['Didi', '3333']);
+
+        // Atualização
+        DB::update("UPDATE socios SET nome = ?, updated_at = NOW() WHERE id_socio =?", ['Zito Fernando', 2]);
 
         // Leitura dos socios da Base de dados
         // $resultado = DB::select("SELECT COUNT(*) Total FROM socios");
