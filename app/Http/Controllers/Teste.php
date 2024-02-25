@@ -20,7 +20,10 @@ class Teste extends Controller
         // DB::insert("INSERT INTO socios VALUES (0, ?, ?, NOW(), NOW())", ['Didi', '3333']);
 
         // Atualização
-        DB::update("UPDATE socios SET nome = ?, updated_at = NOW() WHERE id_socio =?", ['Zito Fernando', 2]);
+        // DB::update("UPDATE socios SET nome = ?, updated_at = NOW() WHERE id_socio =?", ['Zito Fernando', 2]);
+
+        // Deletar dados
+        DB::delete("DELETE FROM socios WHERE id_socio = ?", [3]);
 
         // Leitura dos socios da Base de dados
         // $resultado = DB::select("SELECT COUNT(*) Total FROM socios");
