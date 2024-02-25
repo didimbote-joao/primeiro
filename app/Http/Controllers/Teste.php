@@ -2,37 +2,19 @@
 
 namespace App\Http\Controllers;
 
+use app\Models\Socios;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 
 class Teste extends Controller
 {
     public function index(){
-        // echo "Estou no controlador";
-        // $data['mostrar']= false;
-        // $data['frase']= 'Frase teste';
-        // $data['nomes'] = [
-        //     'Didi', 'Zito', 'Still', 'Sina', 'Peter'
-        // ];
-        // return view('home');
-
-        // Inserção de sócio 
-        // DB::insert("INSERT INTO socios VALUES (0, ?, ?, NOW(), NOW())", ['Didi', '3333']);
-
-        // Atualização
-        // DB::update("UPDATE socios SET nome = ?, updated_at = NOW() WHERE id_socio =?", ['Zito Fernando', 2]);
-
-        // Deletar dados
-        DB::delete("DELETE FROM socios WHERE id_socio = ?", [3]);
-
-        // Leitura dos socios da Base de dados
-        // $resultado = DB::select("SELECT COUNT(*) Total FROM socios");
-        $resultado = DB::select("SELECT * FROM socios");
+        $model = new Socios();
+        $resultado = $model->get_socio();
         // echo '<pre>';
         // print_r($resultado);
         foreach($resultado as $socio){
             echo '<p>' . $socio->nome . '</p>';
-
         }
     }
 
