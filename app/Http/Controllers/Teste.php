@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
 
 class Teste extends Controller
 {
@@ -13,7 +14,16 @@ class Teste extends Controller
         // $data['nomes'] = [
         //     'Didi', 'Zito', 'Still', 'Sina', 'Peter'
         // ];
-        return view('home');
+        // return view('home');
+
+        // $resultado = DB::select("SELECT COUNT(*) Total FROM socios");
+        $resultado = DB::select("SELECT * FROM socios");
+        // echo '<pre>';
+        // print_r($resultado);
+        foreach($resultado as $socio){
+            echo '<p>' . $socio->nome . '</p>';
+            
+        }
     }
 
     // ============================================================
