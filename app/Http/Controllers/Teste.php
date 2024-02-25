@@ -2,20 +2,27 @@
 
 namespace App\Http\Controllers;
 
-use app\Models\Socios;
+// use app\Models\Socios;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 
 class Teste extends Controller
 {
     public function index(){
-        $model = new Socios();
-        $resultado = $model->get_socio();
-        // echo '<pre>';
-        // print_r($resultado);
-        foreach($resultado as $socio){
-            echo '<p>' . $socio->nome . '</p>';
-        }
+        // Para apresentar mais de uma tabela, devemos pó-las como um array, caso contrário basta sem array
+        $resultados = DB::table('socios')->get(['telefone','nome'])->all(); 
+
+        // $resultados = DB::table('socios')->get('nome')->all(); 
+        
+        
+        // foreach ($resultados as $socio){
+        //     echo '<p>'.$socio->telefone . '</p>';
+        //     echo '<p>'.$socio->nome . '</p>';
+        // }
+
+        echo'<pre>';
+        print_r($resultados);
+        //return view('home');
     }
 
     // ============================================================
