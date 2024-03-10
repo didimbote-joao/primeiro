@@ -22,11 +22,11 @@ class Teste extends Controller
         
         // Chunk (buscar metade da tabela)
 
-        DB::table('socios')->orderBy('id_socio')->chunk(100, function($socios){
-            foreach($socios as $socio){
-                echo "<p>O socio $socio->nome tem o numero $socio->telefone</p>";
-            }
-        });
+        // DB::table('socios')->orderBy('id_socio')->chunk(100, function($socios){
+        //     foreach($socios as $socio){
+        //         echo "<p>O socio $socio->nome tem o numero $socio->telefone</p>";
+        //     }
+        // });
 
         // foreach ($resultados as $socio){
         //     echo '<p>'.$socio->telefone . '</p>';
@@ -36,6 +36,18 @@ class Teste extends Controller
         // echo'<pre>';
         // print_r($resultados);
         //return view('home');
+
+        //Contar e somar
+        // echo DB::table('socios')->count();
+        //echo DB::table('socios')->sum('telefone');
+
+        // Insert
+        DB::table('socios')->insert([
+            'nome' => 'Peter',
+            'telefone' => '929',
+            'created_at' => date('Y-m-d H:i:s'),
+            'updated_at' => date('Y-m-d H:i:s')
+        ]);
     }
 
     // ============================================================
