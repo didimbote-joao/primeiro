@@ -13,21 +13,28 @@ class Teste extends Controller
         // $resultados = DB::table('socios')->get(['telefone','nome'])->all(); 
 
         // WHERE
-        $resultados =DB::table('socios')->where('nome', 'Zito Fernando')->get()->all();
+        // $resultados =DB::table('socios')->where('nome', 'Zito Fernando')->get()->all();
 
-        // Buscar dados de um coluna
-        $resultados =DB::table('socios')->pluck('nome')->all();
+        // Buscar dados de uma coluna
+        // $resultados =DB::table('socios')->pluck('telefone')->all();
 
         // $resultados = DB::table('socios')->get('nome')->all(); 
         
+        // Chunk (buscar metade da tabela)
+
+        DB::table('socios')->orderBy('id_socio')->chunk(100, function($socios){
+            foreach($socios as $socio){
+                echo "<p>O socio $socio->nome tem o numero $socio->telefone</p>";
+            }
+        });
 
         // foreach ($resultados as $socio){
         //     echo '<p>'.$socio->telefone . '</p>';
         //     echo '<p>'.$socio->nome . '</p>';
         // }
 
-        echo'<pre>';
-        print_r($resultados);
+        // echo'<pre>';
+        // print_r($resultados);
         //return view('home');
     }
 
