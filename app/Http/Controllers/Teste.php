@@ -42,11 +42,17 @@ class Teste extends Controller
         //echo DB::table('socios')->sum('telefone');
 
         // Insert
-        DB::table('socios')->insert([
-            'nome' => 'Peter',
-            'telefone' => '929',
-            'created_at' => date('Y-m-d H:i:s'),
-            'updated_at' => date('Y-m-d H:i:s')
+        // DB::table('socios')->insert([
+        //     'nome' => 'Melly',
+        //     'telefone' => '954',
+        //     'created_at' => date('Y-m-d H:i:s'),
+        //     'updated_at' => \Carbon\Carbon::now()
+        // ]);
+
+        // Update
+        DB::table('socios')->where('id_socio', 4)->update([
+            'nome' => 'Didimbote Zimpevo',
+            'updated_at' => \Carbon\Carbon::now(),
         ]);
     }
 
