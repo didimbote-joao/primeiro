@@ -49,11 +49,14 @@ class Teste extends Controller
         //     'updated_at' => \Carbon\Carbon::now()
         // ]);
 
-        // Update
-        DB::table('socios')->where('id_socio', 4)->update([
-            'nome' => 'Didimbote Zimpevo',
-            'updated_at' => \Carbon\Carbon::now(),
-        ]);
+        // // Update
+        // DB::table('socios')->where('id_socio', 4)->update([
+        //     'nome' => 'Didimbote Zimpevo',
+        //     'updated_at' => \Carbon\Carbon::now(),
+        // ]);
+
+        // Delete
+        DB::table('socios')->where('nome', 'Afonsina')->delete();
     }
 
     // ============================================================
